@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Assignment_2.LogCalculations;
+using Assignment_2.PolyCalculations;
+using Assignment_2.TrigCalculations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,18 @@ namespace Assignment_2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnCalculateClick(object sender, RoutedEventArgs e)
+        {
+            double theta = double.Parse(InputTheta.Text);
+            double sin2Theta = TrigFunctions.CalculateSin2Theta(theta);
+            double cos3Theta = TrigFunctions.CalculateCos3Theta(theta);
+            double tanTheta = TrigFunctions.CalculateTanTheta(theta);
+            double logTheta = LogFunctions.CalculateLogTheta(theta);
+            double polynomial = PolynomialFunctions.CalculatePolynomial(theta);
+
+            ResultTextBlock.Text = $"sin(2θ): {sin2Theta}\ncos(3θ): {cos3Theta}\ntan(θ): {tanTheta}\nlog(θ): {logTheta}\nPolynomial: {polynomial}";
         }
     }
 }
